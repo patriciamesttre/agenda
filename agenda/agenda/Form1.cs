@@ -30,7 +30,7 @@ namespace agenda
             OleDbConnection conn = new OleDbConnection();
             String connect = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\patricia.mmribeiro\Downloads\teste.accdb";
             conn.ConnectionString = connect;
-            OleDbCommand cmd = new OleDbCommand("INSERT INTO tabela1(nome) Values ('" +textBox1.Text+"')");
+            OleDbCommand cmd = new OleDbCommand("INSERT INTO tabela1(nome, telefone) Values ('" +textBox1.Text+ "', '" + textBox4.Text + "' )");
             cmd.Connection = conn;
 
             conn.Open();
@@ -87,9 +87,11 @@ namespace agenda
             textBox3.Text = "Os valores retornados da tabela são : ";
             while (aReader.Read())
             {
-                textBox3.Text += Environment.NewLine + (aReader.GetString(0));
+                textBox3.Text += Environment.NewLine + aReader.GetString(0) + " " + aReader.GetString(1);
             }
             conn.Close();
         }
+
+      
     }
 }
