@@ -79,7 +79,7 @@ namespace agenda
             OleDbConnection conn = new OleDbConnection();
             String connect = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\patricia.mmribeiro\Downloads\teste.accdb";
             conn.ConnectionString = connect;
-            OleDbCommand cmd = new OleDbCommand("SELECT * FROM tabela1 WHERE nome Like ('" + textBox1.Text + "%' ORDER BY nome ASC");
+            OleDbCommand cmd = new OleDbCommand("SELECT * FROM tabela1 WHERE nome LIKE ('" + textBox1.Text + "%') ORDER BY nome ASC");
             cmd.Connection = conn;
 
             conn.Open();
